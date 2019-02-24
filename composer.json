@@ -49,6 +49,7 @@
     },
     "require-dev": {
         "filp/whoops": "^2.1.12",
+        "phpstan/phpstan": "^0.11.2",
         "phpunit/phpunit": "^7.0.1",
         "roave/security-advisories": "dev-master",
         "squizlabs/php_codesniffer": "^2.9.1",
@@ -75,12 +76,14 @@
         "development-status": "zf-development-mode status",
         "expressive": "expressive --ansi",
         "check": [
+            "@inspect",
             "@cs-check",
             "@test"
         ],
-        "clear-config-cache": "php bin/clear-config-cache.php",
-        "cs-check": "phpcs",
-        "cs-fix": "phpcbf",
+        "clear-config-cache": "php bin/console config:cache-clear",
+        "cs-check": "phpcs src/*/src --colors",
+        "cs-fix": "phpcbf src/*/src --colors",
+        "inspect": "phpstan analyse src/*/src -l7 --ansi",
         "serve": "php -S 0.0.0.0:8080 -t public/",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"

@@ -48,14 +48,14 @@ final class ExpressiveAuraConfig implements ContainerConfigInterface
      * - If aliases are defined, maps each to lazyGet the target.
      *
      * @param Container $container
-     * @return void
+     * @return null
      */
     public function define(Container $container)
     {
         // Convert config to an object and inject it
         $container->set('config', new ArrayObject($this->config, ArrayObject::ARRAY_AS_PROPS));
         if (empty($this->config['dependencies'])) {
-            return;
+            return null;
         }
         $dependencies = $this->config['dependencies'];
         // Inject delegator factories
@@ -137,7 +137,7 @@ final class ExpressiveAuraConfig implements ContainerConfigInterface
      * This method is purposely a no-op.
      *
      * @param Container $container
-     * @return void
+     * @return null
      */
     public function modify(Container $container)
     {

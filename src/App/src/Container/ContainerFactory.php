@@ -11,7 +11,7 @@ class ContainerFactory
 {
     public function __invoke(ContainerInterface $container): ContainerInterface
     {
-        if (\PHP_SAPI !== 'cli' || \PHP_SAPI === 'cli-server') {
+        if (\PHP_SAPI !== 'cli') {
             throw new RuntimeException('You can only inject container directly inner cli commands.');
         }
 
