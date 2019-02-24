@@ -7,13 +7,13 @@ $config = require __DIR__ . '/config.php';
 $cliConfig['dependencies'] = $config['console']['dependencies'];
 $cliConfig['environment'] = $config['console']['environment'];
 $cacheConfig = [
-    'config_cache_path' => 'var/cache/cli-config-cache.php',
+    'cli_config_cache_path' => 'data/cache/cli-config-cache.php',
 ];
 
 $aggregator = new ConfigAggregator([
     new ArrayProvider($config),
     new ArrayProvider($cliConfig),
     new ArrayProvider($cacheConfig),
-], $cacheConfig['config_cache_path']);
+], $cacheConfig['cli_config_cache_path']);
 
 return $aggregator->getMergedConfig();
