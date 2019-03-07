@@ -1,0 +1,13 @@
+<?php
+
+return [
+    'doctrine' => [
+        'connection' => [
+            'orm_default' => [
+                'params' => [
+//                    'url' => 'mysql://user:secret@{host}:{port}/{db_name}',
+                ],
+            ],
+        ],
+    ],
+];

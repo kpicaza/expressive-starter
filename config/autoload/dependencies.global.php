@@ -2,6 +2,16 @@
 
 declare(strict_types=1);
 
+use App\Application\Http\AddBoardHandler;
+use App\Application\Http\Middleware\ValidateAddBoardParams;
+use App\Container\DoctrineRepositoryFactory;
+use App\Container\DomainEventEmitterFactory;
+use App\Domain\BoardRepository;
+use App\Domain\Model\Aggregate\Board;
+use App\Domain\Service\DomainEventEmitterInterface;
+use ContainerInteropDoctrine\EntityManagerFactory;
+use Doctrine\ORM\EntityManager;
+
 return [
     // Provides application-wide services.
     // We recommend using fully-qualified class names whenever possible as
@@ -19,8 +29,10 @@ return [
             // Fully\Qualified\InterfaceName::class => Fully\Qualified\ClassName::class,
         ],
         // Use 'factories' for services provided by callbacks/factory classes.
-        'factories'  => [
+        'factories' => [
             // Fully\Qualified\ClassName::class => Fully\Qualified\FactoryName::class,
+            EntityManager::class => EntityManagerFactory::class,
+            DomainEventEmitterInterface::class => DomainEventEmitterFactory::class,
         ],
         'conditionals' => [
 

@@ -13,6 +13,7 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    \InFw\TacticianAdapter\ConfigProvider::class,
     \WShafer\PSR11MonoLog\ConfigProvider::class,
     \Zend\HttpHandlerRunner\ConfigProvider::class,
     \Zend\Expressive\Router\AuraRouter\ConfigProvider::class,
