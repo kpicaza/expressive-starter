@@ -17,9 +17,9 @@ call_user_func(function () {
     $container = require 'config/cli-container.php';
     /** @var Application $app */
     $app = $container->get(Application::class);
-    $entityManager = $container->get(EntityManager::class);
-    $app->setHelperSet(ConsoleRunner::createHelperSet($entityManager));
-    ConsoleRunner::addCommands($app);
+//    $entityManager = $container->get(EntityManager::class);
+//    $app->setHelperSet(ConsoleRunner::createHelperSet($entityManager));
+//    ConsoleRunner::addCommands($app);
     $app->setName('Application console');
     $commands = $container->get('config')['console']['commands'];
     $lazyCommands = [];
